@@ -22,7 +22,8 @@ test:
 
 production:
   adapter: postgresql
-  database: db/production.sqlite3	  database: <%= ENV['RDS_DB_NAME'] %>
+  database: db/production.sqlite3	  
+  database: <%= ENV['RDS_DB_NAME'] %>
   encoding: UTF8
   host: <%= ENV['RDS_HOSTNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
