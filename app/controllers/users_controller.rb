@@ -34,6 +34,10 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  
+  def profile
+    p "visiting"
+  end
 
   private
 
