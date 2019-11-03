@@ -1,0 +1,30 @@
+<% provide(:title, "Edit user") %>
+
+  <body class="background">
+   <div class="h-100 row align-items-center">
+     
+      <div class="font-satisfy" id="register-title"> Update your profile </div>
+      <div class="col">
+        <div class="register-container">
+          <br>
+          <%= form_with(model: @user, local: true) do |f| %>
+
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control field-input'  %>
+      
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control field-input' %>
+      
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control field-input' %>
+      
+            <%= f.label :password_confirmation, "Confirmation" %>
+            <%= f.password_field :password_confirmation, class: 'form-control field-input' %>
+      
+            <%= f.submit "Save changes", class: "font-valera field-button" %>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+  </body>
