@@ -1,0 +1,7 @@
+<%= form_with(url: edit_dog_path, scope: :session, local: true, method: "get") do |f| %>
+  <%= f.submit "Edit Dog", class: "font-valera field-button" %>
+<% end %>
+
+<%= form_with(url: logout_path, scope: :session, local: true, method: "delete") do |f| %>
+  <%= f.submit "Log Out", class: "font-valera field-button" %>
+<% end %>

@@ -19,6 +19,10 @@ class DogsController < ApplicationController
 
   # GET /dogs/1/edit
   def edit
+    @user = User.find(params[:id])
+    if current_user.id != @user.id
+      redirect_to "/dogs/" + (current_user.id).to_s + "/edit?commit=Edit+Profile"
+    end
   end
 
   # POST /dogs
@@ -42,7 +46,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: 'Dog was successfully updated.' }
+        format.html { redirect_to '/users/' + (current_user.id).to_s, notice: 'Dog was successfully updated.' }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
