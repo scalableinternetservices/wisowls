@@ -1,6 +1,166 @@
-<h1>Editing Dog</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet-Pup | Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
+  <script type='text/javascript'>
+    function toggle_button(name) {
+      if ($('.tag_btn_' + name).css('color') == "rgb(153, 153, 153)") {
+        $('.tag_btn_' + name).css('color', '#e6a53e').css('border-color', '#fcc369');
+        $('.tag' + name + '_check').prop("checked", true);
+      }
+      else {
+        $('.tag_btn_' + name).css('color', '#999999').css('border-color', '#dddddd');
+        $('.tag' + name + '_check').prop("checked", false);
+      }
+    }
+    
+    function precheck() {
+      for (var name = 1; name <= 11; name++) {
+        if($('.tag' + name + '_check').is(':checked'))
+          $('.tag_btn_' + name).css('color', '#e6a53e').css('border-color', '#fcc369');
+        else
+          $('.tag_btn_' + name).css('color', '#999999').css('border-color', '#dddddd');
+      }
+      var loop = 'abcdef'
+      for (var i = 0; i < loop.length; i++) {
+        if($('.tag' + loop[i] + '_check').is(':checked'))
+          $('.tag_btn_' + loop[i]).css('color', '#e6a53e').css('border-color', '#fcc369');
+        else
+          $('.tag_btn_' + loop[i]).css('color', '#999999').css('border-color', '#dddddd');
+      }
+    }
+  
+  </script>
+  <body class="background-blank" onload="precheck()" >
+   <div class="h-100 row my_profile_row" style="min-height: 1300px">
+      <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+      
+      <div class="col">
+        <div class="register-container-profile">
+        </div>
+      </div>
 
-<%= render 'form', dog: @dog %>
+      <div class="col">
+        <div class="register-container-profile">
+            <div class="upload-profile-pic"></div>
+            <div class="image-upload">
+               <label for="file-input" class="font-valera img-upload-btn">
+                 UPLOAD
+               </label>
+            
+              
+            </div>
 
-<%= link_to 'Show', @dog %> |
-<%= link_to 'Back', dogs_path %>
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="register-container-profile" style="padding-left: 15px; padding-right: 15px;">
+      <%= form_with(model: @dog, local: true) do |form| %>
+        <% if @dog.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+      
+            <ul>
+              <% @dog.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+        <div class="field" >
+          <%= form.label :name %>
+          <%= form.text_field :name, class: 'form-control field-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :age %>
+          <%= form.number_field :age, class: 'form-control field-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :gender %>
+          <%= form.text_field :gender, class: 'form-control field-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :breed %>
+          <%= form.text_field :breed, class: 'form-control field-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :weight %>
+          <%= form.number_field :weight, class: 'form-control field-input' %>
+        </div>
+
+        <%= form.check_box :playful, class: 'tag1_check hidden_checkbox' %>
+        <%= form.check_box :energetic, class: 'tag2_check hidden_checkbox' %>
+        <%= form.check_box :friendly, class: 'tag3_check hidden_checkbox' %>
+        <%= form.check_box :calm, class: 'tag4_check hidden_checkbox' %>
+        <%= form.check_box :affectionate, class: 'tag5_check hidden_checkbox' %>
+        <%= form.check_box :cuddly, class: 'tag6_check hidden_checkbox' %>
+        <%= form.check_box :intelligent, class: 'tag7_check hidden_checkbox' %>
+        <%= form.check_box :curious, class: 'tag8_check hidden_checkbox' %>
+        <%= form.check_box :sassy, class: 'tag9_check hidden_checkbox' %>
+        <%= form.check_box :child_friendly, class: 'tag11_check hidden_checkbox' %>
+        <%= form.check_box :cat_friendly, class: 'tag10_check hidden_checkbox' %>
+        
+        <%= form.check_box :likes_small_dogs, class: 'taga_check hidden_checkbox' %>
+        <%= form.check_box :likes_big_dogs, class: 'tagb_check hidden_checkbox' %>
+        <%= form.check_box :likes_puppies, class: 'tagc_check hidden_checkbox' %>
+        <%= form.check_box :likes_soul_mate, class: 'tagd_check hidden_checkbox' %>
+        <%= form.check_box :likes_younger_dogs, class: 'tage_check hidden_checkbox' %>
+        <%= form.check_box :likes_older_dogs, class: 'tagf_check hidden_checkbox' %>
+      
+        <label for="traits">I am...</label>
+        <br>
+        <button type="button" onclick="toggle_button('1')" class='font-valera tag-button tag_btn_1'>Playful</button>
+        <button type="button" onclick="toggle_button('2')" class='font-valera tag-button tag_btn_2'>Energetic</button>
+        <button type="button" onclick="toggle_button('3')" class='font-valera tag-button tag_btn_3'>Friendly</button>
+        <button type="button" onclick="toggle_button('4')" class='font-valera tag-button tag_btn_4'>Calm</button>
+        <button type="button" onclick="toggle_button('5')" class='font-valera tag-button tag_btn_5'>Affectionate</button>
+        <button type="button" onclick="toggle_button('6')" class='font-valera tag-button tag_btn_6'>Cuddly</button>
+        <button type="button" onclick="toggle_button('7')" class='font-valera tag-button tag_btn_7'>Intelligent</button>
+        <button type="button" onclick="toggle_button('8')" class='font-valera tag-button tag_btn_8'>Curious</button>
+        <button type="button" onclick="toggle_button('9')" class='font-valera tag-button tag_btn_9'>Sassy</button>
+        <button type="button" onclick="toggle_button('10')" class='font-valera tag-button tag_btn_10'>Child Friendly</button>
+        <button type="button" onclick="toggle_button('11')" class='font-valera tag-button tag_btn_11'>Cat Friendly</button>
+
+        <br> <br> 
+        
+         <label for="lookingfor">Looking for...</label>
+        <br>
+        <button type="button" onclick="toggle_button('a')" class='font-valera tag-button tag_btn_a'>Small Dogs</button>
+        <button type="button" onclick="toggle_button('b')" class='font-valera tag-button tag_btn_b'>Big Dogs</button>
+        <button type="button" onclick="toggle_button('c')" class='font-valera tag-button tag_btn_c'>Puppies</button>
+        <button type="button" onclick="toggle_button('d')" class='font-valera tag-button tag_btn_d'>A Soul Mate</button>
+        <button type="button" onclick="toggle_button('e')" class='font-valera tag-button tag_btn_e'>Younger Dogs</button>
+        <button type="button" onclick="toggle_button('f')" class='font-valera tag-button tag_btn_f'>Older Dogs</button>
+
+        <br> <br> <br>
+
+        
+        </div>
+        
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+        <% end %>
+      </div>
+      
+      <div class="col">
+        <div class="register-container-profile">
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
+
+
+
+

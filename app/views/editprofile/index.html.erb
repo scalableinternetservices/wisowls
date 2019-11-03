@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Breed</th>
+      <th>Weight</th>
+      <th>Cat friendly</th>
+      <th>Child friendly</th>
+      <th>Playful</th>
+      <th>Barker</th>
+      <th>Energetic</th>
+      <th>Calm</th>
+      <th>Friendly</th>
+      <th>Likes small dogs</th>
+      <th>Likes big dogs</th>
+      <th>Likes puppies</th>
+      <th>Likes older dogs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.gender %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.weight %></td>
+        <td><%= dog.cat_friendly %></td>
+        <td><%= dog.child_friendly %></td>
+        <td><%= dog.playful %></td>
+        <td><%= dog.barker %></td>
+        <td><%= dog.energetic %></td>
+        <td><%= dog.calm %></td>
+        <td><%= dog.friendly %></td>
+        <td><%= dog.likes_small_dogs %></td>
+        <td><%= dog.likes_big_dogs %></td>
+        <td><%= dog.likes_puppies %></td>
+        <td><%= dog.likes_older_dogs %></td>
+        <td><%= link_to 'Show', dog %></td>
+        <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
+        <td><%= link_to 'Destroy', dog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dog', new_dog_path %>

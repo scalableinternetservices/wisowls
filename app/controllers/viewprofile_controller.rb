@@ -1,0 +1,3 @@
+class ViewProfileController < ApplicationController
+ 
+end

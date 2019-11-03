@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_194122) do
+ActiveRecord::Schema.define(version: 2019_11_02_235156) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2019_10_25_194122) do
     t.boolean "likes_older_dogs"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "affectionate"
+    t.boolean "cuddly"
+    t.boolean "intelligent"
+    t.boolean "curious"
+    t.boolean "sassy"
+    t.boolean "likes_soul_mate"
+    t.boolean "likes_younger_dogs"
   end
 
   create_table "users", force: :cascade do |t|

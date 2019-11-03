@@ -1,0 +1,3 @@
+class ViewProfile < ApplicationRecord
+  
+end
