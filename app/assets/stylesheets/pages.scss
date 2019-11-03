@@ -231,6 +231,7 @@ footer ul li {
   margin-left: 0;
 }
 
+<<<<<<< HEAD
 .text-1 {
   text-align: center;
   font-size: 25px;
@@ -244,4 +245,16 @@ footer ul li {
 .text-2-left {
   text-align: left;
   font-size: 18px;
+=======
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+>>>>>>> 240bc72ba74fc1850ffe750c3b31b91d299398c0
 }

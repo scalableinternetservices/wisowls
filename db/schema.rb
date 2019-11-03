@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_11_02_235156) do
 
   create_table "dogs", force: :cascade do |t|
@@ -39,6 +40,9 @@ ActiveRecord::Schema.define(version: 2019_11_02_235156) do
     t.boolean "likes_soul_mate"
     t.boolean "likes_younger_dogs"
   end
+=======
+ActiveRecord::Schema.define(version: 2019_11_03_062335) do
+>>>>>>> 240bc72ba74fc1850ffe750c3b31b91d299398c0
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -47,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_235156) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
