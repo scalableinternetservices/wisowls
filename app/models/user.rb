@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_messageable  
+  
   attr_accessor :remember_token
     
   before_save { self.email = email.downcase }
@@ -37,5 +39,9 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  def mailboxer_email(object)
+    nil
   end
 end
