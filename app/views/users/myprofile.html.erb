@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet-Pup | Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
+  <body class="background-blank">
+   <div class="h-100 row">
+      <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+      
+      <div class="col">
+        <div class="register-container-profile">
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="register-container-profile">
+          <%= form_with(model: @user, local: true) do |f| %>
+            <%= f.label :profile %>
+            <div class="upload-profile-pic"></div>
+            
+            <div class="image-upload">
+               <label for="file-input" class="font-valera img-upload-btn">
+                 UPLOAD
+               </label>
+            
+               <%= f.file_field :image_url,id:"file-input" %>
+            </div>
+
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="register-container-profile">
+      
+            <%= f.label :name %>
+            <%= f.text_field :dog_name, class: 'form-control field-input' %>
+         
+            <%= f.label :age %>
+            <%= f.number_field :dog_age, class: 'form-control field-input' %>
+            
+            <%= f.label :gender %>
+            <%= f.select :dog_gender, options_for_select([["Select One", ""], "Male" , "Female"]), {}, { :class => 'field-input' } %>
+      
+            <%= f.label :breed %>
+            <%= f.text_field :dog_breed, class: 'form-control field-input' %>
+    
+            <br> <br> 
+            
+            <%= f.label :playfulness %>
+            <%= f.range_field :playfulness, :min=>1, :max=>5, :class=>"field-input", :id=>"" %>
+            
+            <%= f.label :friendliness %>
+            <%= f.range_field :friendliness, :min=>1, :max=>5, :class=>"field-input", :id=>"" %>
+            
+            <%= f.label :activeness %>
+            <%= f.range_field :trait, :min=>1, :max=>5, :class=>"field-input", :id=>"" %>
+            
+            <%= f.label :activeness %>
+            <%= f.range_field :trait, :min=>1, :max=>5, :class=>"field-input", :id=>"" %>
+            
+            <%= f.label :activeness %>
+            <%= f.range_field :trait, :min=>1, :max=>5, :class=>"field-input", :id=>"" %>
+
+            <br> <br> 
+
+          <%= f.submit "Save", class: "font-valera field-button" %>
+          <% end %>
+          
+        </div>
+      </div>
+      
+      <div class="col">
+        <div class="register-container-profile">
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
