@@ -17,3 +17,31 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+.message-box {
+  width: 500px;
+  position: relative;
+  clear:both; 
+}
+
+.mymessage {
+  max-width: 350px;
+  float: right;
+  text-align: right;
+  padding: 10px;
+  background-color: #ffd373;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.theirmessage {
+  max-width: 350px;
+  float: left;
+  text-align: left;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}

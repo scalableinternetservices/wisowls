@@ -1,18 +1,21 @@
-<h1><%= @conversation.subject %></h1>
 <html>
   <body class="background-blank">
-  <% @conversation.receipts_for(current_user).each do |receipt| %>
-  <div>
-    <div>-<%= receipt.message.sender.name %> :</div>
-    <p><%= receipt.message.body %></p>
-  </div>
-<% end %> 
-
-<%= form_tag conversation_messages_path(@conversation), method: :post do %>
-  <div>
-    <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
-  </div>
-  <%= submit_tag "Send", class: 'msg-button' %>
-<% end %>
+    <div class="msg-container">
+      <h1 class="font-valera"><%= @conversation.subject %></h1>
+      <br> <br>
+      <% @conversation.receipts_for(current_user).each do |receipt| %>
+        <div class="font-valera message-box">
+          <%= render :partial => "theirmessage", locals: { receipt: receipt }  if receipt.message.sender.name != current_user.name %>
+          <%= render :partial => "mymessage", locals: { receipt: receipt }  if receipt.message.sender.name == current_user.name %>
+        </div>
+      <% end %> 
+      
+      <%= form_tag conversation_messages_path(@conversation), method: :post do %>
+        <div>
+          <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
+        </div>
+        <%= submit_tag "Send", class: 'msg-button' %>
+      <% end %>
+    </div>
   </body>
 </html>
