@@ -1,5 +1,12 @@
 <html>
   <body class="background-blank">
+    <div class="msg-select-bg"></div>
+    <%= form_tag conversation_messages_path(@conversation), method: :post do %>
+      <div>
+        <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
+      </div>
+      <%= submit_tag "Send", class: 'msg-button' %>
+    <% end %>
     <div class="msg-container">
       <h1 class="font-valera"><%= @conversation.subject %></h1>
       <br> <br>
@@ -9,13 +16,6 @@
           <%= render :partial => "mymessage", locals: { receipt: receipt }  if receipt.message.sender.name == current_user.name %>
         </div>
       <% end %> 
-      
-      <%= form_tag conversation_messages_path(@conversation), method: :post do %>
-        <div>
-          <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
-        </div>
-        <%= submit_tag "Send", class: 'msg-button' %>
-      <% end %>
     </div>
   </body>
 </html>

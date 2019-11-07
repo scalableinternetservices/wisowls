@@ -15,6 +15,22 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   box-sizing: border-box;
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.msg-select-bg {
+  position: fixed;
+  width: 500px;
+  height: 150px;
+  background-color: white;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .msg-button {
@@ -26,6 +42,11 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .msg:button:hover {
