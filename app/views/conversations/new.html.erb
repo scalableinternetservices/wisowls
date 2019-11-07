@@ -1,0 +1,25 @@
+<h1>New Conversation</h1>
+
+<html>
+  
+  <body class="background-blank">
+    <%= form_tag conversations_path, method: :post do %>
+    <div>
+      <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name), class: 'msg-select' %>
+    </div>
+    
+    <div>
+      <%= text_field_tag :subject, nil, placeholder: "Subject", class: 'msg-select' %>
+    </div>
+    
+    <div>
+      <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
+    </div>
+    
+    <%= submit_tag "Start Conversation", class: 'msg-button' %>
+  </body>
+  
+</html>
+
+
+<% end %>
