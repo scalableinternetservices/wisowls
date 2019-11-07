@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def profile
     p "visiting"
   end
-  
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
