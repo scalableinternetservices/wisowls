@@ -6,6 +6,14 @@ body, html {
   height: 100%;
 }
 
+hr {
+  border-top: 1px solid #ccc;
+}
+
+.col {
+  padding: 0;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -96,16 +104,41 @@ select:not([multiple]) {
   color: white;
 }
 
+.button_to {
+  clear:both;
+  float: left;
+}
+
+.tag-button {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 40px;
+  border: 3px solid #dddddd;
+  border-radius: 10px;
+  color: #999999;
+  font-weight: 700;
+  margin: 5px;
+}
+
+.hidden_checkboxd {
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
+}
+
+.tag-button-no-float {
+  float: none;
+}
+
 .img-upload-btn {
   width: 240px;
   height: 40px;
   border-style: none;
   border-radius: 15px;
-  margin-bottom: 20px;
   padding: 10px;
   background-color: #4bc2e3;
   color: white;
-  margin-top:20px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -138,9 +171,14 @@ select:not([multiple]) {
   text-align: center;
 }
 
+.image-upload {
+  width: 240px;
+  margin: 0 auto;
+}
+
 .image-upload > input
 {
-   display: none;
+  display: none;
 }
 
 .image-upload > label{
@@ -152,6 +190,7 @@ select:not([multiple]) {
   height: 240px;
   background-color: red;
   border-radius: 25px;
+  margin: 0 auto;
 }
 
 
@@ -192,6 +231,22 @@ select:not([multiple]) {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+
+.text-1 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.text-2-right {
+  text-align: right;
+  font-size: 18px;
+}
+
+.text-2-left {
+  text-align: left;
+  font-size: 18px;
 }
 
 /* Users index */

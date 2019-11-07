@@ -1,5 +1,5 @@
 <h1>All Conversations</h1>
-<%= stylesheet_link_tag "conversations", media: "all", "data-turbolinks-track" => true %>
+
 <% @conversations.each do |conversation| %>
   <div>
     <%= link_to conversation.subject, conversation_path(conversation) %>

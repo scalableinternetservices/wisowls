@@ -40,6 +40,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def profile
+    p "visiting"
+  end
+  
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"

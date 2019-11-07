@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
   get 'conversations/index'
-  root 'pages#home'
+
+  root 'sessions#new'
   get 'sessions/new'
   get '/about', to: 'pages#about'
   get '/home', to: 'pages#home'
-  get '/profile', to: 'pages#profile'
-  get 'users/myprofile'
+
+  get 'users/dashboard'
   get  '/signup',  to: 'users#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  get    '/profile', to: 'users#profile'
+  
+  resources :dogs
   resources :users
   resources :conversations do
     resources :messages

@@ -1,15 +1,83 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-        <%= form_with(url: logout_path, scope: :session, local: true, method: "delete") do |f| %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet-Pup | Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
 
-          <%= f.submit "Log Out", class: "font-valera field-button" %>
-        <% end %>
-    </section>
-  </aside>
-</div>
+  <body class="background-blank">
+   <div class="h-100 row my_profile_row" style="min-height: 800px">
+      <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+      
+      <div class="col">
+      </div>
+      
+      <div class="col" style="min-width: 330px;">
+        <div class="register-container-profile">
+          <div class="upload-profile-pic"></div>
+          <br> <br>
+          <div class="font-valera text-1">
+            <%= @user.name %>
+          </div>
+          <br> <hr> <br>
+          <div class="font-valera text-2-right">
+            Breed : &nbsp&nbsp
+          </div>
+          <br>
+          <div class="font-valera text-2-right">
+            Age : &nbsp&nbsp
+          </div>
+          <br>
+          <div class="font-valera text-2-right">
+            Gender : &nbsp&nbsp
+          </div>
+          <br>
+          <div class="font-valera text-2-right">
+            I am : &nbsp&nbsp
+          </div>
+          <br>
+          <div class="font-valera text-2-right">
+            Looking for : &nbsp&nbsp
+          </div>
+        </div>
+      </div>
+      
+      <div class="col" style="min-width: 330px;">
+        <div class="register-container-profile">
+          <div class="upload-profile-pic"></div>
+          <br> <br>
+          <div class="font-valera text-1">
+            <%= @user.name %>'s Doggo
+          </div>
+          <br> <hr> <br>
+          <div class="font-valera text-2-left">
+            Golden Retriever
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            7
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            Male
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            Playful, Energetic, Curious
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            A Soul Mate
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+      </div>
+      
+    </div>
+    <%= render :partial => "userbuttons" if current_user.id == @user.id %>
+  </body>
+</html>

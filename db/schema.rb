@@ -12,6 +12,34 @@
 
 ActiveRecord::Schema.define(version: 2019_11_04_003413) do
 
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "gender"
+    t.string "breed"
+    t.integer "weight"
+    t.boolean "cat_friendly"
+    t.boolean "child_friendly"
+    t.boolean "playful"
+    t.boolean "barker"
+    t.boolean "energetic"
+    t.boolean "calm"
+    t.boolean "friendly"
+    t.boolean "likes_small_dogs"
+    t.boolean "likes_big_dogs"
+    t.boolean "likes_puppies"
+    t.boolean "likes_older_dogs"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "affectionate"
+    t.boolean "cuddly"
+    t.boolean "intelligent"
+    t.boolean "curious"
+    t.boolean "sassy"
+    t.boolean "likes_soul_mate"
+    t.boolean "likes_younger_dogs"
+  end
+
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.string "unsubscriber_type"
     t.integer "unsubscriber_id"
