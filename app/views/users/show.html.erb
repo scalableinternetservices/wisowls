@@ -18,7 +18,7 @@
         <div class="register-container-profile">
           <div class="upload-profile-pic">
           <% if @user.image.attached? %>
-              <%= image_tag user.image.variant(resize_to_limit: [100, 100]) %>
+            
               <%= image_tag @user.image %>
           <% end %>
           </div>
