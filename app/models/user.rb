@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   acts_as_messageable  
-  
+  has_one_attached :image
   attr_accessor :remember_token
     
   before_save { self.email = email.downcase }
