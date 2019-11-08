@@ -3,7 +3,7 @@
     <div class="msg-select-bg"></div>
     <%= form_tag conversation_messages_path(@conversation), method: :post do %>
       <div>
-        <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select' %>
+        <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select-body' %>
       </div>
       <%= submit_tag "Send", class: 'msg-button' %>
     <% end %>
