@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
-  has_many_attached :image
+  # has_many_attached :image
 
   # GET /dogs
   # GET /dogs.json
