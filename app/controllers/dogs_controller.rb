@@ -33,7 +33,7 @@ class DogsController < ApplicationController
 
     respond_to do |format|
       if @dog.save
-        format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
+        format.html { redirect_to '/users/' + (current_user.id).to_s, notice: 'Dog was successfully created.' }
         format.json { render :show, status: :created, location: @dog }
       else
         format.html { render :new }
@@ -69,7 +69,11 @@ class DogsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dog
-      @dog = Dog.find(params[:id])
+      begin
+        @dog = Dog.find(params[:id])
+      rescue StandardError => e
+        new
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
