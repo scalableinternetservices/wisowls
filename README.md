@@ -35,3 +35,7 @@ Github: ninamaller
 #### Wai Yan (Will) Htun
 <img src="https://github.com/scalableinternetservices/wisowls/blob/master/members_photos/will_profile.jpg" alt="alt text" width=30%>  
 Github: willhtun
+
+#### Yash Choudhary
+<img src="https://github.com/scalableinternetservices/wisowls/blob/master/members_photos/Yash_pic.jpg" alt="alt text" width=30%>  
+Github: yashch123
