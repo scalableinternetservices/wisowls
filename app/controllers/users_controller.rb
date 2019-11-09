@@ -17,8 +17,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    p "user create 1"
     if @user.save
+      p "user create 2"
       log_in @user
+      
+      @dog = Dog.new(name: '')
+      @dog.save
+      
       flash[:success] = "Welcome!"
       redirect_to @user
     else
