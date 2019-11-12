@@ -152,7 +152,7 @@ select:not([multiple]) {
   width: 100%;
   font-size: 50px;
   text-align: center;
-  top: 25px;
+  margin-top: 15px;
 }
 
 .register-container {
@@ -259,4 +259,62 @@ select:not([multiple]) {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.navbar-top {
+  position: absolute;
+  top: 25px;
+  right: 5px;
+}
+
+.header-tab {
+  margin-right: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: black;
+}
+
+.nav .open > a {
+  color: white;
+  background: #3998b3;
+}
+
+.nav li a:visited {
+  color: black;
+  background: transparent;
+}
+
+.nav li a:hover{
+  color: white;
+  background: #4bc2e3;
+}
+
+.nav .open > a:focus {
+  color: white;
+  background: #3998b3;
+}
+
+.nav .open > a:visited {
+  color: white;
+  background: red;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 15px;
+  border: 2px solid #eeeeee;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 2px;
+  color: #cccccc;
+}
+
+.tag-active {
+  display: inline-block;
+  font-size: 15px;
+  border: 2px solid #fcc369;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 2px;
+  color: #e6a53e;
 }
