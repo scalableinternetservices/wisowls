@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @dog = Dog.find(params[:id])
   end
 
   def new
@@ -20,7 +21,18 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome!"
+      # Gotta make the prof photo the same size
+      # params[:image] do |image|
+      #   mini_image = MiniMagick::Image.new(image.tempfile.path)
+      #   mini_image.resize '120x1200'
+      # end
+      # params[:image] = MiniMagick::Image.new(image.tempfile.path).resize "250x250>"
+     
+  
       redirect_to @user
+      
+     
+      
     else
       render 'new'
     end

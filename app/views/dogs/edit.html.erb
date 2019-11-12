@@ -45,11 +45,16 @@
 
       <div class="col">
         <div class="register-container-profile">
-            <div class="upload-profile-pic"></div>
+            <div class="upload-profile-pic"> 
+              <!-- This doesnt work :( -->
+             
+            </div>
             <div class="image-upload">
+              
                <label for="file-input" class="font-valera img-upload-btn">
                  UPLOAD
                </label>
+          
             
               
             </div>
@@ -72,6 +77,11 @@
           </div>
         <% end %>
       
+        <div class="field" >
+         <%= form.label :dog_prof %>
+         <%= form.file_field :dog_prof %> <br>
+        </div>  
+        
         <div class="field" >
           <%= form.label :name %>
           <%= form.text_field :name, class: 'form-control field-input' %>
@@ -147,7 +157,7 @@
         </div>
         
         <div class="actions">
-          <%= form.submit %>
+          <%= form.submit "Submit", class: "font-valera field-button" %>
         </div>
         <% end %>
       </div>

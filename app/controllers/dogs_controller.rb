@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
-  # has_many_attached :image
+  
 
   # GET /dogs
   # GET /dogs.json
@@ -79,6 +79,6 @@ class DogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
 
-      params.require(:dog).permit(:name, :age, :gender, :breed, :weight, :playful, :energetic, :friendly, :calm, :affectionate, :cuddly, :intelligent, :curious, :sassy, :child_friendly, :cat_friendly, :likes_small_dogs, :likes_big_dogs, :likes_puppies, :likes_soul_mate, :likes_younger_dogs, :likes_older_dogs)
+      params.require(:dog).permit(:dog_prof, :name, :age, :gender, :breed, :weight, :playful, :energetic, :friendly, :calm, :affectionate, :cuddly, :intelligent, :curious, :sassy, :child_friendly, :cat_friendly, :likes_small_dogs, :likes_big_dogs, :likes_puppies, :likes_soul_mate, :likes_younger_dogs, :likes_older_dogs)
     end
 end

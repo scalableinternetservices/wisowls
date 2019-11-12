@@ -18,8 +18,7 @@
         <div class="register-container-profile">
           <div class="upload-profile-pic">
           <% if @user.image.attached? %>
-            
-              <%= image_tag @user.image %>
+              <%= image_tag @user.image.variant(resize_to_fit: [240,240]) %>
           <% end %>
           </div>
 
@@ -52,7 +51,10 @@
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
           <div class="upload-profile-pic"></div>
-    
+            <% if @dog.image.attached? %>
+              <%= image_tag @dog.dog_prof.variant(resize_to_fit: [240,240]) %>
+            <% end %>
+            
           <div class="font-valera text-1">
             <%= @user.name %>'s Doggo
           </div>

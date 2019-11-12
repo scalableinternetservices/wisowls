@@ -15,5 +15,8 @@ module Wisowls
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    # whitelist ip so we can change the size of the image
+    config.web_console.whitelisted_ips = '131.179.58.120'
   end
 end
