@@ -149,10 +149,11 @@ select:not([multiple]) {
 
 #register-title {
   position: absolute;
-  width: 100%;
   font-size: 50px;
   text-align: center;
   margin-top: 15px;
+  right: 0px;
+  left: 0px;
 }
 
 .register-container {
@@ -207,9 +208,8 @@ select:not([multiple]) {
 
 #footer {
   padding-right: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
   padding-top: 20px;
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
