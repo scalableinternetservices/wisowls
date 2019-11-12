@@ -1,8 +1,12 @@
 <h1>New Conversation</h1>
-
 <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
   
   <body class="background-blank">
+    <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+        
     <%= form_tag conversations_path, method: :post do %>
     <div>
       <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name), class: 'msg-select' %>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet-Pup | Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
+  <body class="background-blank">
+      
+    <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+      
+    <div class="matchcards-container">
+      <% @dogs.limit(4).each do |dog| %>
+        <a href="/users/<%= dog.id %>" >
+          <div class="matchcard" >
+            <div style="height: 330px;"></div>
+            <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
+            <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </body>
+  
+  
+  </body>
+</html>

@@ -20,9 +20,13 @@ class DogsController < ApplicationController
 
   # GET /dogs/1/edit
   def edit
-    @user = User.find(params[:id])
-    if current_user.id != @user.id
-      redirect_to "/dogs/" + (current_user.id).to_s + "/edit?commit=Edit+Profile"
+    begin
+      @user = User.find(params[:id])
+      if current_user.id != @user.id
+        redirect_to "/dogs/" + (current_user.id).to_s + "/edit?commit=Edit+Profile"
+      end
+    rescue ActiveRecord::RecordNotFound => e
+      print e
     end
   end
 

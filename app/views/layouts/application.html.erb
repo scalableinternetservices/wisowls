@@ -13,20 +13,19 @@
   <body>
     
     <%= yield %>
-    <header class="navbar navbar-fixed-top">
+    <header class="navbar navbar-top">
         <nav>
           <ul class="nav navbar-right">
-            <li><%= link_to "Home",  home_path %></li>
             <% if logged_in? %>
-              <li><%= link_to "Users", users_path %></li>
+              <li><%= link_to "Home",  home_path, class:"font-valera header-tab" %></li>
+              <li><%= link_to "Messages", conversations_path(current_user), class:"font-valera header-tab" %></li>
               <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+              <a href="#" class="font-valera dropdown-toggle header-tab" data-toggle="dropdown">
+                My Account </b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "View Profile", current_user %></li>
                 <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-                <li><%= link_to "Messages", conversations_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Log out", logout_path, method: :delete %>
@@ -39,19 +38,5 @@
           </ul>
         </nav>
     </header>
-
-   <div id="page-container">
-     <div id="content-wrap">
-       <!-- all other page content -->
-     </div>
-     <footer id="footer">
-      <nav>
-        <ul>
-          <li><%= link_to "About",   about_path %></li>
-          <li><%= link_to "Contact Us", '#' %></li>
-        </ul>
-      </nav>
-    </footer>
-   </div>
   </body>
 </html>
