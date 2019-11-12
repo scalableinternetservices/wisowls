@@ -5,14 +5,16 @@
   </head>
   
   <body class="background-blank">
-  <% @conversations.each do |conversation| %>
-    <div>
-      <%= link_to conversation.subject, conversation_path(conversation) %>
-    </div>
-  <% end %>
-
-</br>
-<%= link_to "New Conversation", new_conversation_path %>
+    
+    <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+    <% @conversations.each do |conversation| %>
+      <div>
+        <%= link_to conversation.subject, conversation_path(conversation) %>
+      </div>
+    <% end %>
+  
+    </br>
+    <%= link_to "New Conversation", new_conversation_path %>
 
   </body>
 </html>
