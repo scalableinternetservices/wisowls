@@ -27,7 +27,18 @@ class UsersController < ApplicationController
       @dog.save
       
       flash[:success] = "Welcome!"
+      # Gotta make the prof photo the same size
+      # params[:image] do |image|
+      #   mini_image = MiniMagick::Image.new(image.tempfile.path)
+      #   mini_image.resize '120x1200'
+      # end
+      # params[:image] = MiniMagick::Image.new(image.tempfile.path).resize "250x250>"
+     
+  
       redirect_to @user
+      
+     
+      
     else
       render 'new'
     end
