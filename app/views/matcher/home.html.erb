@@ -8,12 +8,11 @@
   <body class="background-blank">
       
     <div class="font-satisfy" id="register-title"> Meet-Pup </div>
-      
     <div class="matchcards-container">
       <% (0..(@dogs.size-1)).step(4) do |i| %> 
         <% @dogs[i..i+3].each do |dog| %>
           <a href="/users/<%= dog.id %>" >
-            <div class="matchcard" style="background: url(<% dog.dog_prof %>)">
+            <div class="matchcard" style="background: url(https://images2.minutemediacdn.com/image/upload/c_crop,h_2788,w_4960,x_0,y_255/f_auto,q_auto,w_1100/v1554918537/shape/mentalfloss/istock-488657289.jpg)">
               <div style="height: 330px;"></div>
               <div class="text-box-bg">
                 <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
