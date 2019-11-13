@@ -18,11 +18,10 @@
         <div class="register-container-profile">
           <div class="upload-profile-pic">
           <% if @user.image.attached? %>
-            
               <%= image_tag @user.image %>
           <% end %>
           </div>
-
+          <br> <br>
           <div class="font-valera text-1">
             <%= @user.name %>
           </div>
@@ -56,7 +55,7 @@
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
           <div class="upload-profile-pic"></div>
-    
+          <br> <br>
           <div class="font-valera text-1">
             <%= @dog.name %>
           </div>

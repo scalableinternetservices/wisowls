@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     if current_user
       log_in current_user
       remember current_user
-      redirect_to current_user
+      redirect_to matcher_url
     end
   end
   

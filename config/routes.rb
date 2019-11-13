@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
   get 'sessions/new'
   get '/about', to: 'pages#about'
-  get '/home', to: 'pages#home'
+  get '/home', to: 'matcher#home'
 
   get 'users/dashboard'
   get  '/signup',  to: 'users#new'
