@@ -16,9 +16,9 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
-          <div class="upload-profile-pic">
+          <div class="upload-profile-pic" style="border-radius: 50%;">
           <% if @user.image.attached? %>
-              <%= image_tag @user.image.variant(resize_to_fit: [240,240]) %>
+              <%= image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
           <% end %>
           </div>
 
@@ -54,10 +54,11 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
-          <div class="upload-profile-pic"></div>
-            <% if @dog.image.attached? %>
-              <%= image_tag @dog.dog_prof.variant(resize_to_fit: [240,240]) %>
+          <div class="upload-profile-pic">
+            <% if @dog.dog_prof.attached? %>
+              <%= image_tag @dog.dog_prof.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic" %>
             <% end %>
+          </div>
             
           <div class="font-valera text-1">
             <%= @dog.name %>
@@ -112,4 +113,3 @@
 </html>
 
 
-:, :, :, :, :, :, :, :
