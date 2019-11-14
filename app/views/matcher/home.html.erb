@@ -8,16 +8,23 @@
   <body class="background-blank">
       
     <div class="font-satisfy" id="register-title"> Meet-Pup </div>
-      
     <div class="matchcards-container">
-      <% @dogs.limit(4).each do |dog| %>
-        <a href="/users/<%= dog.id %>" >
-          <div class="matchcard" >
-            <div style="height: 330px;"></div>
-            <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
-            <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
-          </div>
-        </a>
+      <% (0..(@dogs.size-1)).step(4) do |i| %> 
+        <% @dogs[i..i+3].each do |dog| %>
+          <a href="/users/<%= dog.id %>" >
+            <div class="matchcard" style="">
+              <% if dog.dog_prof.attached? %>
+                <%= image_tag dog.dog_prof.variant(resize_to_fill: [300,400]), :style => "z-index: -1; border-radius: 15px; position:absolute" %>
+              <% end %>
+              
+              
+              <div class="text-box-bg" style = "margin-top: 330px; z-index:1">
+                <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
+                <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
+              </div>
+            </div>
+          </a>
+        <% end %>
       <% end %>
     </div>
   </body>
