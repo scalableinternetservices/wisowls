@@ -76,8 +76,10 @@
       
         <div class="field">
           <%= form.label :gender %>
-          <%= form.text_field :gender, class: 'form-control field-input' %>
+          <%= form.select :gender, ['Male', 'Female']%>
+          
         </div>
+        <br>
       
         <div class="field">
           <%= form.label :breed %>
