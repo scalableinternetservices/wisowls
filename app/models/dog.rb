@@ -1,3 +1,3 @@
 class Dog < ApplicationRecord
-    has_one_attached :dog_prof
+    has_many_attached :dog_images
 end

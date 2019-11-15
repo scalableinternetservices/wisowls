@@ -13,8 +13,8 @@
         <% @dogs[i..i+3].each do |dog| %>
           <a href="/users/<%= dog.id %>" >
             <div class="matchcard" style="">
-              <% if dog.dog_prof.attached? %>
-                <%= image_tag dog.dog_prof.variant(resize_to_fill: [300,400]), :style => "z-index: -1; border-radius: 15px; position:absolute" %>
+              <% if dog.dog_images.attached? %>
+                <%= image_tag dog.dog_images.variant(resize_to_fill: [300,400]), :style => "z-index: -1; border-radius: 15px; position:absolute" %>
               <% end %>
               
               

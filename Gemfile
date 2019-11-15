@@ -44,6 +44,10 @@ end
 
 group :production do
   gem 'pg', '1.1.4'
+  gem 'listen',                '3.1.5'
+  gem 'spring',                '2.1.0'
+  gem 'spring-watcher-listen', '2.0.1'
+  gem 'mailboxer', github: 'mailboxer/mailboxer'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
