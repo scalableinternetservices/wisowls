@@ -12,9 +12,9 @@
       <%= submit_tag "Send", class: 'msg-button' %>
     <% end %>
     <div class="msg-container">
-      <h1 class="font-valera"><%= @conversation.subject %></h1>
+      <!-- <h1 class="font-valera"><%= @conversation.subject %></h1> -->
       <br> <br>
-      <% @conversation.receipts_for(current_user).each do |receipt| %>
+      <% @conversation.receipts_for(current_user).drop(1).each do |receipt| %>
         <div class="font-valera message-box">
           <%= render :partial => "theirmessage", locals: { receipt: receipt }  if receipt.message.sender.name != current_user.name %>
           <%= render :partial => "mymessage", locals: { receipt: receipt }  if receipt.message.sender.name == current_user.name %>

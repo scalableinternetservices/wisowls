@@ -108,7 +108,8 @@
       </div>
       
     </div>
-    <%= render :partial => "userbuttons" if current_user.id == @user.id %>
+    <%= render "userbuttons" if current_user.id == @user.id %>
+    <%= render "msgbuttons", user_id: @user.id if current_user.id != @user.id %>
   </body>
 </html>
 

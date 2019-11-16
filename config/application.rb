@@ -17,6 +17,6 @@ module Wisowls
     # the framework and any gems in your application.
     
     # whitelist ip so we can change the size of the image
-    config.web_console.whitelisted_ips = '131.179.58.120'
+    # config.web_console.whitelisted_ips = '131.179.58.120'
   end
 end

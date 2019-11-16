@@ -1,3 +1,3 @@
-class DogProfile < ApplicationRecord
+class Dogprofile < ApplicationRecord
   
 end

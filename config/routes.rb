@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+  
+  resources :conversations do
+    member do 
+        post 'test'
+    end
+end
 end
