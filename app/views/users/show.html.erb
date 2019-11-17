@@ -18,7 +18,9 @@
         <div class="register-container-profile">
           <div class="upload-profile-pic" style="border-radius: 50%;">
           <% if @user.image.attached? %>
-              <%= image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
+          
+              <% # = image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
+              
           <% end %>
           </div>
           <br> <br>
@@ -55,15 +57,7 @@
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
           <div class="upload-profile-pic">
-            <% if @dog.dog_images.attached? %>
-              <%= image_tag @dog.dog_images.first.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic" %>
-              
-              <% @dog.dog_images.each do |image| %>
-                
-                <%= image_tag image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic" %>
-                
-              <% end %>
-            <% end %>
+         
           </div>
           <br> <br>
           <div class="font-valera text-1">
