@@ -17,7 +17,7 @@ gem 'webpacker',                  '4.0.7'
 gem 'turbolinks',                 '5.2.0'
 gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.4.4', require: false
-gem 'mailboxer', github: 'mailboxer/mailboxer'
+gem 'mailboxer'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
@@ -48,7 +48,7 @@ group :production do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.1.0'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'mailboxer', github: 'mailboxer/mailboxer'
+  gem 'mailboxer'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
