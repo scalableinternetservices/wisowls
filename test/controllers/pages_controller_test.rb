@@ -11,10 +11,10 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get profile" do
-    get profile_path
-    assert_response :success
-  end
+  # test "should get profile" do
+  #   get profile_path
+  #   assert_response :success
+  # end
 
   test "should get home" do
     get home_path
