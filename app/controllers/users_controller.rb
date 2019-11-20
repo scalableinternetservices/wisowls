@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @dog = Dog.find(params[:id])
+    if @dog.name == ''
+      render :noaccount
+    end
   end
 
   def new
@@ -31,11 +34,8 @@ class UsersController < ApplicationController
       #   mini_image.resize '120x1200'
       # end
       # params[:image] = MiniMagick::Image.new(image.tempfile.path).resize "250x250>"
-     
-  
-      redirect_to @user
-      
-     
+    
+      redirect_to "/dogs/" + @user.id.to_s + "/edit?commit=Edit+Dog" 
       
     else
       render 'new'

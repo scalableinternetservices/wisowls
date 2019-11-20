@@ -5,15 +5,18 @@
   <body class="background-blank">
     <div class="font-satisfy" id="register-title"> Meet-Pup </div>
     <div class="msg-select-bg"></div>
+    <br> <br>
     <%= form_tag conversation_messages_path(@conversation), method: :post do %>
       <div>
         <%= text_area_tag :body, nil, placeholder: "Message Body", class: 'msg-select-body' %>
       </div>
       <%= submit_tag "Send", class: 'msg-button' %>
     <% end %>
+    <br> <br> <br> <br>
+    <h3 class="font-valera" style="margin: 0 auto; width: 500px;"> Messages </h3>
+    <br> <br>
     <div class="msg-container">
       <!-- <h1 class="font-valera"><%= @conversation.subject %></h1> -->
-      <br> <br>
       <% @conversation.receipts_for(current_user).drop(1).each do |receipt| %>
         <div class="font-valera message-box">
           <%= render :partial => "theirmessage", locals: { receipt: receipt }  if receipt.message.sender.name != current_user.name %>

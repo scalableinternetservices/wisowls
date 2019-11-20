@@ -1,0 +1,35 @@
+<% provide(:title, @user.name) %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meet-Pup | Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Satisfy|Varela+Round&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="background-blank">
+   <div class="h-100 row my_profile_row" style="min-height: 950px">
+      <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+      
+      <div class="col">
+      </div>
+      
+      <div class="col">
+        <div style="height: 300px;"></div>
+        <p class="font-valera" style="text-align: center; font-size: 16px;"> You have not created a profile for your dog. </p>
+        <br>
+        <%= form_with(url: edit_dog_path, scope: :session, local: true, method: "get") do |f| %>
+          <%= f.submit "Create A Profile Now", class: "font-valera field-button" %>
+        <% end %>
+      </div>
+
+      <div class="col">
+      </div>
+      
+    </div>
+    <%= render "userbuttons" if current_user.id == @user.id %>
+    <%= render "msgbuttons", user_id: @user.id if current_user.id != @user.id %>
+  </body>
+</html>
+
+
