@@ -8,7 +8,7 @@
   </head>
 
   <body class="background-blank">
-   <div class="h-100 row my_profile_row" style="min-height: 950px">
+   <div class="h-100 row my_profile_row" style="min-height: 880px">
       <div class="font-satisfy" id="register-title"> Meet-Pup </div>
       
       <div class="col">
@@ -112,7 +112,9 @@
       </div>
       
     </div>
-    <%= render :partial => "userbuttons" if current_user.id == @user.id %>
+    <%= render "userbuttons" if current_user.id == @user.id %>
+    <%= render "msgbuttons", user_id: @user.id if current_user.id != @user.id %>
+    <br> <br>
   </body>
 </html>
 

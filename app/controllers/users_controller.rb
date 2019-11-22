@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @dog = Dog.find(params[:id])
+    if @dog.name == ''
+      render :noaccount
+    end
   end
 
   def new
@@ -18,9 +21,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    p "user create 1"
     if @user.save
-      p "user create 2"
       log_in @user
       
       @dog = Dog.new(name: '')
@@ -33,11 +34,8 @@ class UsersController < ApplicationController
       #   mini_image.resize '120x1200'
       # end
       # params[:image] = MiniMagick::Image.new(image.tempfile.path).resize "250x250>"
-     
-  
-      redirect_to @user
-      
-     
+    
+      redirect_to "/dogs/" + @user.id.to_s + "/edit?commit=Edit+Dog" 
       
     else
       render 'new'
@@ -71,7 +69,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:name, :zipcode, :email, :password,
                                    :password_confirmation, :image)
     end
     
