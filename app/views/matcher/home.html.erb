@@ -14,11 +14,7 @@
           <% if dog.name != '' %>
             <a href="/users/<%= dog.id %>" >
               <div class="matchcard" style="">
-                <% if dog.dog_prof.attached? %>
-                  <%= image_tag dog.dog_prof.variant(resize_to_fill: [300,400]), :style => "z-index: -1; border-radius: 15px; position:absolute" %>
-                <% end %>
-                
-                
+               
                 <div class="text-box-bg" style = "margin-top: 330px; z-index:1">
                   <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
                   <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
