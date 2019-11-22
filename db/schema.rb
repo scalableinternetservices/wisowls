@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_193614) do
+ActiveRecord::Schema.define(version: 2019_11_22_202725) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_193614) do
     t.boolean "sassy"
     t.boolean "likes_soul_mate"
     t.boolean "likes_younger_dogs"
+    t.integer "zipcode"
   end
 
   create_table "likes_tables", force: :cascade do |t|
