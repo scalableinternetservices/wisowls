@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/local/share/tsung/tsung-1.0.dtd" [] >
+<tsung loglevel="notice">
+
+  <!-- Client side setup -->
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers='15000'/>
+  </clients>
+
+  <!-- Server side setup -->
+  <servers>
+    <server host="wisowls.9kzrfzjyhm.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+  </servers>
+
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+        <users arrivalrate="1" unit="second"></users>
+ </arrivalphase>
+ <arrivalphase phase="2" duration="30" unit="second">
+ <users arrivalrate="2" unit="second"></users>
+ </arrivalphase>
+ <arrivalphase phase="3" duration="30" unit="second">
+ <users arrivalrate="4" unit="second"></users>
+ </arrivalphase>
+ <arrivalphase phase="4" duration="30" unit="second">
+ <users arrivalrate="8" unit="second"></users>
+ </arrivalphase>
+  </load>
+
+  <options>
+    <!-- Set connection timeout to 2 seconds -->
+    <option name="global_ack_timeout" value="2000"></option>
+
+    <option type="ts_http" name="user_agent">
+      <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+    </option>
+  </options>
+
+  <sessions>
+    <session name="http-example" probability="100" type="ts_http">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+
+        <!-- wait up to 2 seconds -->
+        <thinktime value="2" random="true"></thinktime>
+
+        <!-- visit the signup page -->
+        <request>
+                <http url='/signup' version='1.1' method='GET'></http>
+        </request>
+
+        <!-- wait up to 2 seconds for user to fill out forms -->
+        <thinktime value="2" random="true"></thinktime>
+
+        <!-- create a random number to make a unique email address -->
+        <setdynvars sourcetype="random_number" start="1000" end="9999999">
+                <var name="random_email" />
+        </setdynvars>
+
+        <!-- post to /users to create a new account -->
+        <request subst="true">
+        <dyn_variable name="created_community_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_community_id" re="[Ll]ocation: http://.*/communities/(.*)\r"/>
+        <http
+          url='/users'
+          version='1.1'
+          method='POST'
+          contents='community%5Bname%5D=community_name_%%_random_community_name%%&amp;commit=Create+Community'>
+        </http>
+      </request>
+
+    </session>
+  </sessions>
+</tsung>
