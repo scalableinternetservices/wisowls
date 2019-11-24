@@ -17,10 +17,10 @@ class ConversationsController < ApplicationController
     redirect_to conversation_path(receipt.conversation)
   end
   
-  def test
+  def createmsg
     recipient = User.find(params[:user_id])
     sender = User.find(current_user.id)
-    convo = Mailboxer::Conversation.only_between(sender, recipient)
+    convo = Mailboxer::Conversation.between(sender, recipient)
 
     if convo.count > 0
       redirect_to conversation_path(convo[0].id)

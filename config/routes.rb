@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   
   resources :conversations do
     member do 
-        post 'test'
+        post 'createmsg'
     end
 end
 end
