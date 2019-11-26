@@ -76,18 +76,46 @@
 
         <!-- post to /users to create a new account -->
         <request subst="true">
-        <dyn_variable name="created_community_url" re="[Ll]ocation: (http://.*)\r"/>
-        <dyn_variable name="created_community_id" re="[Ll]ocation: http://.*/communities/(.*)\r"/>
+        <dyn_variable name="add_dog_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_user_id" re="[Ll]ocation: http://.*/dogs/(.*)\r"/>
         <http
           url='/users'
           version='1.1'
           method='POST'
-          contents='authenticity_token=%%_encoded_authenticity_token%%&user%5Bname%5D=%%_random_name%%&user%5Bemail%5D=%%_random_name%%%40gmail.com&user%5Bpassword%5D=111111&user%5Bpassword_confirmation%5D=111111&commit=Create+my+account'>
+          contents='authenticity_token=%%_encoded_authenticity_token%%&amp;user%5Bname%5D=%%_random_name%%&amp;user%5Bemail%5D=%%_random_name%%%40gmail.com&amp;user%5Bpassword%5D=111111&amp;user%5Bpassword_confirmation%5D=111111&amp;commit=Create+my+account'
+          content_type='application/x-www-form-urlencoded'>
         </http>
-      </request>
+        </request>
       
+        <!-- wait up to 2 seconds for user to fill out new dog form -->
+        <thinktime value="2" random="true"></thinktime>
+        
+        <!-- add a new dog -->
+        <request subst="true">
+          <http
+          url='%%_add_dog_url%%'
+          version='1.1'
+          contents='_method=patch&amp;authenticity_token=%%_encoded_authenticity_token%%&amp;dog%5Bname%5D=&amp;dog%5Bzipcode%5D=90025&amp;dog%5Bname%5D=dog&amp;dog%5Bage%5D=5&amp;dog%5Bgender%5D=Female&amp;dog%5Bbreed%5D=Poodle&amp;dog%5Bweight%5D=25&amp;dog%5Bplayful%5D=0&amp;dog%5Bplayful%5D=1&amp;dog%5Benergetic%5D=0&amp;dog%5Bfriendly%5D=0&amp;dog%5Bcalm%5D=0&amp;dog%5Bcalm%5D=1&amp;dog%5Baffectionate%5D=0&amp;dog%5Baffectionate%5D=1&amp;dog%5Bcuddly%5D=0&amp;dog%5Bintelligent%5D=0&amp;dog%5Bcurious%5D=0&amp;dog%5Bsassy%5D=0&amp;dog%5Bsassy%5D=1&amp;dog%5Bchild_friendly%5D=0&amp;dog%5Bcat_friendly%5D=0&amp;dog%5Blikes_small_dogs%5D=0&amp;dog%5Blikes_big_dogs%5D=0&amp;dog%5Blikes_puppies%5D=0&amp;dog%5Blikes_puppies%5D=1&amp;dog%5Blikes_soul_mate%5D=0&amp;dog%5Blikes_younger_dogs%5D=0&amp;dog%5Blikes_younger_dogs%5D=1&amp;dog%5Blikes_older_dogs%5D=0&amp;commit=Submit' 
+          content_type='application/x-www-form-urlencoded' 
+          method='POST'
+          >
+          </http>
+        </request>
       
-
+        <!-- wait up to 2 seconds -->
+        <thinktime value="2" random="true"></thinktime>
+        
+        <!-- log out -->
+        <request subst="true">
+          <http
+          url='/logout'
+          version='1.1'
+          contents='_method=delete&amp;authenticity_token=%%_encoded_authenticity_token%%&amp;commit=Log+Out'
+          content_type='application/x-www-form-urlencoded' 
+          method='POST'>
+          </http>
+        </request>
+        
     </session>
   </sessions>
 </tsung>
