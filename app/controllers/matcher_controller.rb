@@ -8,6 +8,7 @@ class MatcherController < ApplicationController
     @alldogs = Dog.all
     like_radius = params[:radius]
     
+     # Replace 90024 with my_zip 
      for dog in @alldogs
       other_zip = dog.zipcode
       zipcode_url = "https://www.zipcodeapi.com/rest/GmiyTSTTuReA0ppnY5NodOpUIjuC1TBX4zf9zVGMsYjkReSFb8AJLdhSJAHqn27M/distance.json/" + "90024" + "/" + other_zip.to_s + "/mile"
