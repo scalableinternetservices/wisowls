@@ -1,6 +1,24 @@
 class MatcherController < ApplicationController
   def home
+  require "net/http"
+  require "uri"
+  #require "httparty"
+  
     @dogs = Dog.all
+    like_radius = params[:radius]
+    
+     for dog in @dogs
+      other_zip = dog.zipcode
+      zipcode_url = "https://www.zipcodeapi.com/rest/GmiyTSTTuReA0ppnY5NodOpUIjuC1TBX4zf9zVGMsYjkReSFb8AJLdhSJAHqn27M/distance.json/" + "90024" + "/" + other_zip.to_s + "/mile"
+      uri = URI.parse(zipcode_url)
+      zipResponse = Net::HTTP.get_response(uri)
+      distance = zipResponse.body
+      if like_radius < distance
+        @dogs << :dog
+      end
+      
+    end
+
     
     sender = User.find(current_user.id)
     convos = current_user.mailbox.conversations
