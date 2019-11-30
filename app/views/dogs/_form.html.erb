@@ -99,4 +99,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  
+  <%= f.collection_select :radius, Dog::radii, include_blank: true %>
 <% end %>

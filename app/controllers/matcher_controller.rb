@@ -6,7 +6,8 @@ class MatcherController < ApplicationController
   #require "httparty"
   
     @alldogs = Dog.all
-    like_radius = params[:radius]
+    @dogs = []
+    like_radius = params['radius'].to_i
     
      # Replace 90024 with my_zip 
      for dog in @alldogs
@@ -15,9 +16,9 @@ class MatcherController < ApplicationController
       uri = URI.parse(zipcode_url)
       httpResponse = Net::HTTP.get_response(uri)
       zipDistance = JSON.parse(httpResponse.body)
-      
-      if like_radius < zipDistance["distance"]
-        (@dogs ||= []) << :dog
+
+      if like_radius < zipDistance['distance'].to_i
+        @dogs << :dog
       end
       
     end
@@ -37,5 +38,9 @@ class MatcherController < ApplicationController
     
     @talked_to = talked
     
+  end
+  
+  def matcher_params
+    params.permit(:radius)
   end
 end
