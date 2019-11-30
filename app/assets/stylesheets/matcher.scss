@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .matchcards-container {
-  padding-top: 75px;
+  padding-top: 50px;
   width: 1360px;
   margin: 0 auto;
   overflow:auto; 
@@ -23,7 +23,7 @@
   margin: 20px;
   float: left;
   border-radius: 15px;
-  border: 5px solid red;
+  border: 5px solid #4bc2e3;
 }
 
 .matchcard-text {
@@ -38,4 +38,28 @@
   background-image: linear-gradient(transparent, #2b2b2b);
   margin-top: 320px; 
   z-index:1
+}
+
+.filter-wrapper {
+  width: 250px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+
+.filter-input {
+  width: 140px;
+  height: 40px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+}
+
+.filter-button {
+  width: 100px;
+  height: 40px;
+  border-style: none;
+  border-radius: 15px;
+  background-color: #4bc2e3;
+  color: white;
 }

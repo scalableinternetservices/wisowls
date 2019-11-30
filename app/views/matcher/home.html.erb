@@ -8,9 +8,14 @@
   <body class="background-blank">
       
     <div class="font-satisfy" id="register-title"> Meet-Pup </div>
-    <%= form_with url: users_path do |f| %>
-      <%= f.select(:radius, [['5', 1], ['10', 2], ['15', 3], ['20', 4]]) %>
-    <% end %>
+
+    <div class="filter-wrapper">
+      <%= form_for :matcher, url: {action: "home"}, :html => {:method => :get} do |f| %>
+        <%= f.select :radius, [['Show All', 0], ['5 miles', 1], ['10 miles', 2], ['15 miles', 3], ['20 miles', 4]], {}, { class: "font-valera filter-input" } %>
+        <%= f.submit "Filter", class: "font-valera filter-button" %>
+      <% end %>
+    </div>
+    
     <div class="matchcards-container">
       <% (0..(@dogs.size-1)).step(4) do |i| %> 
         <% @dogs[i..i+3].each do |dog| %>
@@ -38,8 +43,5 @@
         <% end %>
       <% end %>
     </div>
-  </body>
-  
-  
   </body>
 </html>
