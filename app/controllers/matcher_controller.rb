@@ -5,7 +5,7 @@ class MatcherController < ApplicationController
     require "json"
     #require "httparty"
   
-    allDogs = Dog.all
+    allDogs = Dog.where.not(id: current_user.id)
     @dogs = []
     
     if (params[:matcher].present? && params[:matcher][:radius].present?)
@@ -19,13 +19,16 @@ class MatcherController < ApplicationController
     else
       dogList = []
       for dog in allDogs
+        p "lllllllllllllaAAAAAAlll"
         other_zip = dog.zipcode
         zipcode_url = "https://www.zipcodeapi.com/rest/GmiyTSTTuReA0ppnY5NodOpUIjuC1TBX4zf9zVGMsYjkReSFb8AJLdhSJAHqn27M/distance.json/" + "90024" + "/" + other_zip.to_s + "/mile"
         uri = URI.parse(zipcode_url)
         httpResponse = Net::HTTP.get_response(uri)
         zipDistance = JSON.parse(httpResponse.body)
-  
+
         dist = (other_zip.to_i - Dog.find(current_user.id).zipcode.to_i).abs
+        p dist
+        p like_radius
         if dist < like_radius.to_i
           dogList.append(dog)
         end

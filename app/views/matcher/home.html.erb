@@ -11,7 +11,7 @@
 
     <div class="filter-wrapper">
       <%= form_for :matcher, url: {action: "home"}, :html => {:method => :get} do |f| %>
-        <%= f.select :radius, [['Show All', 0], ['5 miles', 1], ['10 miles', 2], ['15 miles', 3], ['20 miles', 4]], {}, { class: "font-valera filter-input" } %>
+        <%= f.select :radius, [['Show All', 0], ['5 miles', 5], ['10 miles', 10], ['20 miles', 20], ['50 miles', 50], ['100 miles', 100]], {}, { class: "font-valera filter-input" } %>
         <%= f.submit "Filter", class: "font-valera filter-button" %>
       <% end %>
     </div>
