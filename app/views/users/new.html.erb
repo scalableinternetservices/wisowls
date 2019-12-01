@@ -12,10 +12,17 @@
         <div class="register-container">
           <br> <br> <br> <br> <br>
           
-          <%= form_with(model: @user, local: true) do |f| %>
+          <%= form_with(model: @user, local: true, multipart: true) do |f| %>
+          
             <%= render 'shared/error_messages' %>
             
             <%= f.label :image %>
+            <%= f.file_field :image %>
+            
+          
+            <!--<#%= file_field_tag 'image' %>-->
+         
+            <br>
             
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control field-input' %>

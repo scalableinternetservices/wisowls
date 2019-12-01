@@ -8,7 +8,7 @@
   </head>
 
   <body class="background-blank">
-   <div class="h-100 row my_profile_row" style="min-height: 880px">
+   <div class="h-100 row my_profile_row" style="min-height: 800px">
       <div class="font-satisfy" id="register-title"> Meet-Pup </div>
       
       <div class="col">
@@ -18,9 +18,7 @@
         <div class="register-container-profile">
           <div class="upload-profile-pic" style="border-radius: 50%;">
           <% if @user.image.attached? %>
-          
-              <% # = image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
-              
+              <%= image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
           <% end %>
           </div>
           <br> <br>
@@ -28,6 +26,10 @@
             <%= @user.name %>
           </div>
           <br> <hr> <br>
+          <div class="font-valera text-2-right">
+            Breed : &nbsp&nbsp
+          </div>
+          <br>
           <div class="font-valera text-2-right">
             Age : &nbsp&nbsp
           </div>
@@ -37,21 +39,9 @@
           </div>
           <br>
           <div class="font-valera text-2-right">
-            Breed : &nbsp&nbsp
-          </div>
-          <br>
-          <div class="font-valera text-2-right">
-            Weight : &nbsp&nbsp
-          </div>
-          <br>
-           <div class="font-valera text-2-right">
-            Zipcode : &nbsp&nbsp
-          </div>
-          <br>
-          <div class="font-valera text-2-right">
             I am : &nbsp&nbsp
           </div>
-          <br> <br> <br> <br> <br> <br>
+          <br>
           <div class="font-valera text-2-right">
             Looking for : &nbsp&nbsp
           </div>
@@ -60,50 +50,34 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
-          <div class="upload-profile-pic">
-         
+          <div class="upload-profile-pic" style="border-radius: 50%;">
+          <% if @dog.image.attached? %>
+              <%= image_tag @dog.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
+          <% end %>
           </div>
           <br> <br>
           <div class="font-valera text-1">
-            <%= @dog.name %>
+            <%= @user.name %>'s Doggo
           </div>
           <br> <hr> <br>
           <div class="font-valera text-2-left">
-            <%= @dog.age %>
+            Golden Retriever
           </div>
           <br>
           <div class="font-valera text-2-left">
-            <%= @dog.gender %>
+            7
           </div>
           <br>
           <div class="font-valera text-2-left">
-            <%= @dog.breed %>
+            Male
           </div>
           <br>
           <div class="font-valera text-2-left">
-            <%= @dog.weight %>
-          </div>
-          <br>
-          <div class="font-valera text-2-left" style="margin-top: -7px;">
-            <% if @dog.playful == true %> <div class="tag-active"> Playful </div> <% else %> <div class="tag"> Playful </div> <% end %>
-            <% if @dog.energetic == true %> <div class="tag-active"> Energetic </div> <% else %> <div class="tag"> Energetic </div> <% end %>
-            <% if @dog.friendly == true %> <div class="tag-active"> Friendly </div> <% else %> <div class="tag"> Friendly </div> <% end %>
-            <% if @dog.calm == true %> <div class="tag-active"> Calm </div> <% else %> <div class="tag"> Calm </div> <% end %>
-            <% if @dog.cuddly == true %> <div class="tag-active"> Cuddly </div> <% else %> <div class="tag"> Cuddly </div> <% end %>
-            <% if @dog.intelligent == true %> <div class="tag-active"> Intelligent </div> <% else %> <div class="tag"> Intelligent </div> <% end %>
-            <% if @dog.curious == true %> <div class="tag-active"> Curious </div> <% else %> <div class="tag"> Curious </div> <% end %>
-            <% if @dog.sassy == true %> <div class="tag-active"> Sassy </div> <% else %> <div class="tag"> Sassy </div> <% end %>
-            <% if @dog.child_friendly == true %> <div class="tag-active"> Child Friendly </div> <% else %> <div class="tag"> Child Friendly </div> <% end %>
-            <% if @dog.cat_friendly == true %> <div class="tag-active"> Cat Friendly </div> <% else %> <div class="tag"> Cat Friendly </div> <% end %>
+            Playful, Energetic, Curious
           </div>
           <br>
           <div class="font-valera text-2-left">
-            <% if @dog.likes_small_dogs == true %> <div class="tag-active"> Small Dogs </div> <% else %> <div class="tag"> Small Dogs </div> <% end %>
-            <% if @dog.likes_big_dogs == true %> <div class="tag-active"> Big Dogs </div> <% else %> <div class="tag"> Big Dogs </div> <% end %>
-            <% if @dog.likes_puppies == true %> <div class="tag-active"> Puppies </div> <% else %> <div class="tag"> Puppies </div> <% end %>
-            <% if @dog.likes_soul_mate == true %> <div class="tag-active"> A Soul Mate </div> <% else %> <div class="tag"> A Soul Mate </div> <% end %>
-            <% if @dog.likes_younger_dogs == true %> <div class="tag-active"> Younger Dogs </div> <% else %> <div class="tag"> Younger Dogs </div> <% end %>
-            <% if @dog.likes_older_dogs == true %> <div class="tag-active"> Older Dogs </div> <% else %> <div class="tag"> Olde Dogs </div> <% end %>
+            A Soul Mate
           </div>
         </div>
       </div>
@@ -112,10 +86,6 @@
       </div>
       
     </div>
-    <%= render "userbuttons" if current_user.id == @user.id %>
-    <%= render "msgbuttons", user_id: @user.id if current_user.id != @user.id %>
-    <br> <br>
+    <%= render :partial => "userbuttons" if current_user.id == @user.id %>
   </body>
 </html>
-
-

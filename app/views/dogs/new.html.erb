@@ -61,12 +61,9 @@
       
         <div class="field" >
          <%= form.label :Profile_Photo %>
-<<<<<<< HEAD
-         <%= form.file_field :dog_images, multiple: true %> <br>
-=======
-         <%= form.file_field :dog_prof %> <br>
->>>>>>> matching
+         <%= form.file_field :image %> <br>
         </div>  
+        <br>
         
         <div class="field" >
           <%= form.label :name %>
@@ -80,15 +77,10 @@
       
         <div class="field">
           <%= form.label :gender %>
-<<<<<<< HEAD
           <%= form.select :gender, ['Male', 'Female']%>
           
         </div>
         <br>
-=======
-          <%= form.text_field :gender, class: 'form-control field-input' %>
-        </div>
->>>>>>> matching
       
         <div class="field">
           <%= form.label :breed %>
@@ -99,15 +91,12 @@
           <%= form.label :weight %>
           <%= form.number_field :weight, class: 'form-control field-input' %>
         </div>
-<<<<<<< HEAD
         
          <div class="field" >
           <%= form.label :zipcode %>
           <%= form.number_field :zipcode, class: 'form-control field-input' %>
         </div>
         <br>
-=======
->>>>>>> matching
 
         <%= form.check_box :playful, class: 'tag1_check hidden_checkbox' %>
         <%= form.check_box :energetic, class: 'tag2_check hidden_checkbox' %>
