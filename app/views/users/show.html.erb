@@ -16,10 +16,16 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
+<<<<<<< HEAD
           <div class="upload-profile-pic" style="border-radius: 50%;">
           <% if @user.image.attached? %>
               <%= image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
           <% end %>
+=======
+          <div class="upload-profile-pic" style="border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img src="https://i.pinimg.com/originals/52/ce/f1/52cef103f4b85e9c70b71bbd568e8531.jpg" 
+              style="height: 100%; width: 100%; border-radius: 50%;">
+>>>>>>> master
           </div>
           <br> <br>
           <div class="font-valera text-1">
@@ -50,11 +56,18 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
+<<<<<<< HEAD
           <div class="upload-profile-pic" style="border-radius: 50%;">
           <% if @dog.image.attached? %>
               <%= image_tag @dog.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
           <% end %>
+=======
+          
+          <div class="upload-profile-pic" style="border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img src="https://pdfimages.wondershare.com/images/margarete-cotty.png" style="width: 100%; height: 100%;">
+>>>>>>> master
           </div>
+
           <br> <br>
           <div class="font-valera text-1">
             <%= @user.name %>'s Doggo
@@ -73,7 +86,28 @@
           </div>
           <br>
           <div class="font-valera text-2-left">
+<<<<<<< HEAD
             Playful, Energetic, Curious
+=======
+            <%= @dog.weight %>
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            <%= @dog.zipcode %>
+          </div>
+          <br>
+          <div class="font-valera text-2-left" style="margin-top: -7px;">
+            <% if @dog.playful == true %> <div class="tag-active"> Playful </div> <% else %> <div class="tag"> Playful </div> <% end %>
+            <% if @dog.energetic == true %> <div class="tag-active"> Energetic </div> <% else %> <div class="tag"> Energetic </div> <% end %>
+            <% if @dog.friendly == true %> <div class="tag-active"> Friendly </div> <% else %> <div class="tag"> Friendly </div> <% end %>
+            <% if @dog.calm == true %> <div class="tag-active"> Calm </div> <% else %> <div class="tag"> Calm </div> <% end %>
+            <% if @dog.cuddly == true %> <div class="tag-active"> Cuddly </div> <% else %> <div class="tag"> Cuddly </div> <% end %>
+            <% if @dog.intelligent == true %> <div class="tag-active"> Intelligent </div> <% else %> <div class="tag"> Intelligent </div> <% end %>
+            <% if @dog.curious == true %> <div class="tag-active"> Curious </div> <% else %> <div class="tag"> Curious </div> <% end %>
+            <% if @dog.sassy == true %> <div class="tag-active"> Sassy </div> <% else %> <div class="tag"> Sassy </div> <% end %>
+            <% if @dog.child_friendly == true %> <div class="tag-active"> Child Friendly </div> <% else %> <div class="tag"> Child Friendly </div> <% end %>
+            <% if @dog.cat_friendly == true %> <div class="tag-active"> Cat Friendly </div> <% else %> <div class="tag"> Cat Friendly </div> <% end %>
+>>>>>>> master
           </div>
           <br>
           <div class="font-valera text-2-left">

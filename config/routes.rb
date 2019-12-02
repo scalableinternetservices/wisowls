@@ -26,5 +26,5 @@ Rails.application.routes.draw do
     member do 
         post 'createmsg'
     end
-end
+  end
 end

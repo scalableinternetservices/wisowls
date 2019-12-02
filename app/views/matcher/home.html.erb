@@ -8,6 +8,14 @@
   <body class="background-blank">
       
     <div class="font-satisfy" id="register-title"> Meet-Pup </div>
+
+    <div class="filter-wrapper">
+      <%= form_for :matcher, url: {action: "home"}, :html => {:method => :get} do |f| %>
+        <%= f.select :radius, [['Show All', 0], ['5 miles', 5], ['10 miles', 10], ['20 miles', 20], ['50 miles', 50], ['100 miles', 100]], {}, { class: "font-valera filter-input" } %>
+        <%= f.submit "Filter", class: "font-valera filter-button" %>
+      <% end %>
+    </div>
+    
     <div class="matchcards-container">
       <% (0..(@dogs.size-1)).step(4) do |i| %> 
         <% @dogs[i..i+3].each do |dog| %>
@@ -35,8 +43,5 @@
         <% end %>
       <% end %>
     </div>
-  </body>
-  
-  
   </body>
 </html>

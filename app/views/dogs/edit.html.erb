@@ -61,12 +61,12 @@
         
         <div class="field">
           <%= form.label :owner_name, "Owner Name" %>
-          <%= form.text_field :name, class: 'form-control field-input', placeholder: @user.name, :readonly => true %>
+          <%= form.text_field :name, class: 'form-control field-input', value: @user.name, :readonly => true %>
         </div>
         
         <div class="field">
           <%= form.label :zipcode %>
-          <%= form.number_field :zipcode, class: 'form-control field-input' %>
+          <%= form.number_field :zipcode, class: 'form-control field-input', :required => true %>
         </div>
         
         <hr>
@@ -100,8 +100,6 @@
           <%= form.label :weight, "Weight (lb)" %>
           <%= form.number_field :weight, class: 'form-control field-input', :required => true %>
         </div>
-      
-        <br>
         
         <%= form.check_box :playful, class: 'tag1_check hidden_checkbox' %>
         <%= form.check_box :energetic, class: 'tag2_check hidden_checkbox' %>
@@ -153,7 +151,7 @@
         </div>
         
         <div class="actions">
-          <%= form.submit "Submit", class: "font-valera field-button" %>
+          <%= form.submit "Save Profile", class: "font-valera field-button" %>
         </div>
         <% end %>
       </div>
