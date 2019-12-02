@@ -16,12 +16,9 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
-          <div class="upload-profile-pic" style="border-radius: 50%;">
-          <% if @user.image.attached? %>
-          
-              <% # = image_tag @user.image.variant(resize_to_fill: [240,240]), :class => "upload-profile-pic"%>
-              
-          <% end %>
+          <div class="upload-profile-pic" style="border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img src="https://i.pinimg.com/originals/52/ce/f1/52cef103f4b85e9c70b71bbd568e8531.jpg" 
+              style="height: 100%; width: 100%; border-radius: 50%;">
           </div>
           <br> <br>
           <div class="font-valera text-1">
@@ -60,9 +57,11 @@
       
       <div class="col" style="min-width: 330px;">
         <div class="register-container-profile">
-          <div class="upload-profile-pic">
-         
+          
+          <div class="upload-profile-pic" style="border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img src="https://pdfimages.wondershare.com/images/margarete-cotty.png" style="width: 100%; height: 100%;">
           </div>
+
           <br> <br>
           <div class="font-valera text-1">
             <%= @dog.name %>
@@ -82,6 +81,10 @@
           <br>
           <div class="font-valera text-2-left">
             <%= @dog.weight %>
+          </div>
+          <br>
+          <div class="font-valera text-2-left">
+            <%= @dog.zipcode %>
           </div>
           <br>
           <div class="font-valera text-2-left" style="margin-top: -7px;">
