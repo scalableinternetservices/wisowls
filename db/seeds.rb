@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+users_data = [
+  [ "Ali", "ali@gmail.com", "password" ],
+  [ "Alley", "alley@gmail.com", "password" ],
+  [ "Beth", "beth@gmail.com", "password" ],
+  [ "Caren", "caren@gmail.com", "password" ],
+  [ "Danny", "dani@gmail.com", "password" ],
+  [ "Emad", "emad@gmail.com", "password" ],
+  [ "Fifi", "fifi@gmail.com", "password" ],
+  [ "Guy", "guy@gmail.com", "password" ]
+]
+
+dogs_data = [
+    ["Emma", 4, "Male", "Pit", 15, 90021],
+    ["Archie", 6, "Male", "Lab", 10, 90096],
+    ["Rocky", 10, "Male", "Samoyed", 25, 90032],
+    ["Baddie", 2, "Male", "Pit Terrier", 8, 91010],
+    ["Tucker", 6, "Male", "Pit", 15, 90076],
+    ["Emily" 5, "Male", "Pit", 15, 90101]
+    
+]
+
+users_data.each do |name, email, password|
+    users.create(name: name, email: email, password_digest: password)
+
+dogs_data.each do |name, age, gender, breed, age, zipcode|
+  dogs.create( name: name, age: age, gender: gender, breed: breed, weight: weight, zipcode: zipcode)
+end
