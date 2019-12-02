@@ -22,8 +22,11 @@
           <% if dog.name != '' %>
             <% if @talked_to.include? dog.id %>
               <a href="/users/<%= dog.id %>" >
-                <div class="matchcard-talked-to" style="">
-                  <div class="text-box-bg">
+                <div class="matchcard" style="">
+                  <% if dog.image.attached? %>
+                        <%= image_tag dog.image.variant(resize_to_fill: [294,394]), :style => "border: 6px solid #4bc2e3; z-index:-1; position: absolute; border-radius: 10px"%>
+                    <% end %>
+                  <div class="text-box-bg" style = "margin-top: 330px; z-index:1">
                     <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
                     <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
                   </div>
@@ -32,6 +35,9 @@
             <% else %>
               <a href="/users/<%= dog.id %>" >
                 <div class="matchcard" style="">
+                  <% if dog.image.attached? %>
+                        <%= image_tag dog.image.variant(resize_to_fill: [300,400]), :style => " z-index:-1; position: absolute; border-radius: 10px"%>
+                    <% end %>
                   <div class="text-box-bg" style = "margin-top: 330px; z-index:1">
                     <p class="font-valera matchcard-text" style="font-size:22px;"> <%= dog.name %>, <%= dog.age %></p>
                     <p class="font-valera matchcard-text" style="font-size:18px;"> <%= dog.breed %> </p>
