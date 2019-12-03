@@ -91,7 +91,7 @@
         <thinktime value="2" random="true"></thinktime>
         
         <!-- add a new dog -->
-        <request subst="true">
+        <!--<request subst="true">
           <http
           url='%%_add_dog_url%%'
           version='1.1'
@@ -100,6 +100,11 @@
           method='POST'
           >
           </http>
+        </request>-->
+        
+        <!-- visit home page to view matches -->
+        <request subst="true">
+          <http url='/home' version='1.1' method='GET'></http>
         </request>
       
         <!-- wait up to 2 seconds -->
