@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
   
   private
     def set_conversation
-      @conversation = current_user.mailbox.conversations.find(params[:conversation_id])
+      Octopus.using(:read_replica_2) do
+        @conversation = current_user.mailbox.conversations.find(params[:conversation_id])
+      end
     end
 end
