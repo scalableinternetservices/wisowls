@@ -18,16 +18,17 @@ users_data = [
 ]
 
 dogs_data = [
-  ["Emma", 4, "Male", "Pit", 15, 90021],
+  ["Emma", 4, "Female", "Pit", 15, 90021],
   ["Archie", 6, "Male", "Lab", 10, 90096],
   ["Rocky", 10, "Male", "Samoyed", 25, 90032],
   ["Baddie", 2, "Male", "Pit Terrier", 8, 91010],
   ["Tucker", 6, "Male", "Pit", 15, 90076],
-  ["Emily", 5, "Male", "Pit", 15, 90101],
+  ["Emily", 5, "Female", "Pit", 15, 90101],
+  ["Barnie", 7, "Male", "Pit", 15, 90101],
+  ["Rorry", 5, "Male", "Pit", 15, 90071],
 ]
 
 users_data.each do |name, email, password|
-  p "hi"
   User.create(name: name, email: email, password_digest: password)
 end
 
