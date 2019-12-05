@@ -15,7 +15,7 @@ class MatcherController < ApplicationController
     end
     
     if (like_radius == 0)
-      @dogs = allDogs
+      @dogs = allDogs.paginate(page: params[:page])
     else
       dogList = []
       for dog in allDogs
