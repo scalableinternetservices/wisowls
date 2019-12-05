@@ -18,6 +18,8 @@ gem 'turbolinks',                 '5.2.0'
 gem 'jbuilder',                   '2.9.1'
 gem 'bootsnap',                   '1.4.4', require: false
 gem 'mailboxer'
+gem 'will_paginate',           '3.1.8'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

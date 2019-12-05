@@ -17,7 +17,11 @@
     </div>
     
     <div class="matchcards-container">
+      
       <% (0..(@dogs.size-1)).step(4) do |i| %> 
+      
+      <%= will_paginate @dogs %>
+      
         <% @dogs[i..i+3].each do |dog| %>
           <% if dog.name != '' %>
             <% if @talked_to.include? dog.id %>
@@ -42,6 +46,10 @@
           <% end %>
         <% end %>
       <% end %>
+      
+      <%= will_paginate @dogs %>
+
+      
     </div>
   </body>
 </html>

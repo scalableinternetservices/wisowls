@@ -4,7 +4,7 @@ class MatcherController < ApplicationController
     require "uri"
     require "json"
     #require "httparty"
-  
+    
     allDogs = Dog.where.not(id: current_user.id)
     @dogs = []
     
