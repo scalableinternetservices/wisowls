@@ -138,4 +138,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_202725) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id"
+  
+    
+  add_index :users, :id
+  add_index :dogs, :id
 end
