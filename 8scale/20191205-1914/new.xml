@@ -1,0 +1,138 @@
+<?xml version="1.0"?><tsung loglevel="notice">
+
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers="15000"/>
+  </clients>
+
+  <servers>
+    <server host="wisowls-scale8.zdccrxpw3v.us-west-2.elasticbeanstalk.com" port="80" type="tcp"/>
+  </servers>
+
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+        <users arrivalrate="1" unit="second"/>
+ </arrivalphase>
+ <arrivalphase phase="2" duration="30" unit="second">
+ <users arrivalrate="2" unit="second"/>
+ </arrivalphase>
+ <arrivalphase phase="3" duration="30" unit="second">
+ <users arrivalrate="4" unit="second"/>
+ </arrivalphase>
+ <arrivalphase phase="4" duration="30" unit="second">
+ <users arrivalrate="8" unit="second"/>
+ </arrivalphase>
+  </load>
+
+  <options>
+    <option name="global_ack_timeout" value="2000"/>
+
+    <option type="ts_http" name="user_agent">
+      <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+    </option>
+  </options>
+
+  <sessions>
+    <session name="http-example" probability="100" type="ts_http">
+      <request>
+        <http url="/" version="1.1" method="GET"/>
+      </request>
+
+        <thinktime value="2" random="true"/>
+
+        <request>
+                <http url="/signup" version="1.1" method="GET"/>
+        </request>
+
+        <thinktime value="2" random="true"/>
+
+        <setdynvars sourcetype="random_number" start="1000" end="9999999">
+                <var name="random_name"/>
+        </setdynvars>
+        
+        
+        <request>
+  				<dyn_variable name="authenticity_token"/>
+  				<http url="/users/new" version="1.1" method="GET">
+  				</http>
+  			</request>
+  			
+  			<setdynvars sourcetype="eval" code="fun({Pid,DynVars})->       {ok,Val}=ts_dynvars:lookup(authenticity_token,DynVars),       http_uri:encode(Val) end.">
+  				<var name="encoded_authenticity_token"/>
+  			</setdynvars>
+
+        <request subst="true">
+        <dyn_variable name="add_dog_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_user_id" re="[Ll]ocation: http://.*/dogs/(.*)\r"/>
+        <http url="/users" version="1.1" method="POST" contents="authenticity_token=%%_encoded_authenticity_token%%&amp;user%5Bname%5D=%%_random_name%%&amp;user%5Bemail%5D=%%_random_name%%%40gmail.com&amp;user%5Bpassword%5D=111111&amp;user%5Bpassword_confirmation%5D=111111&amp;commit=Create+my+account" content_type="application/x-www-form-urlencoded">
+        </http>
+        </request>
+      
+        <thinktime value="2" random="true"/>
+        
+        <request subst="true">
+          <http url="%%_add_dog_url%%" version="1.1" contents="_method=patch&amp;authenticity_token=%%_encoded_authenticity_token%%&amp;dog%5Bname%5D=&amp;dog%5Bzipcode%5D=90025&amp;dog%5Bname%5D=dog&amp;dog%5Bage%5D=5&amp;dog%5Bgender%5D=Female&amp;dog%5Bbreed%5D=Poodle&amp;dog%5Bweight%5D=25&amp;dog%5Bplayful%5D=0&amp;dog%5Bplayful%5D=1&amp;dog%5Benergetic%5D=0&amp;dog%5Bfriendly%5D=0&amp;dog%5Bcalm%5D=0&amp;dog%5Bcalm%5D=1&amp;dog%5Baffectionate%5D=0&amp;dog%5Baffectionate%5D=1&amp;dog%5Bcuddly%5D=0&amp;dog%5Bintelligent%5D=0&amp;dog%5Bcurious%5D=0&amp;dog%5Bsassy%5D=0&amp;dog%5Bsassy%5D=1&amp;dog%5Bchild_friendly%5D=0&amp;dog%5Bcat_friendly%5D=0&amp;dog%5Blikes_small_dogs%5D=0&amp;dog%5Blikes_big_dogs%5D=0&amp;dog%5Blikes_puppies%5D=0&amp;dog%5Blikes_puppies%5D=1&amp;dog%5Blikes_soul_mate%5D=0&amp;dog%5Blikes_younger_dogs%5D=0&amp;dog%5Blikes_younger_dogs%5D=1&amp;dog%5Blikes_older_dogs%5D=0&amp;commit=Submit" content_type="application/x-www-form-urlencoded" method="POST">
+          </http>
+        </request>
+      
+        <thinktime value="2" random="true"/>
+        
+        <request><http url="/home?matcher%5Bradius%5D=10&amp;commit=Filter" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <thinktime random="true" value="8"/>
+        <request><http url="/home?matcher%5Bradius%5D=20&amp;commit=Filter" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <thinktime random="true" value="7"/>
+        <request><http url="/home?matcher%5Bradius%5D=50&amp;commit=Filter" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <thinktime random="true" value="14"/>
+        <request><http url="/home?matcher%5Bradius%5D=100&amp;commit=Filter" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        
+        <thinktime value="2" random="true"/>
+        
+        <request><http url="/conversations/3/createmsg" version="1.1" contents="authenticity_token=%%_encoded_authenticity_token%%&amp;user_id=3&amp;commit=Message" content_type="application/x-www-form-urlencoded" method="POST">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <request><http url="/conversations/2" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <thinktime random="true" value="2"/>
+        <request><http url="/conversations/2/messages" version="1.1" contents="authenticity_token=%%_encoded_authenticity_token%%&amp;body=hi&amp;commit=Send" content_type="application/x-www-form-urlencoded" method="POST">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <request><http url="/conversations/2" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <thinktime random="true" value="2"/>
+        <request><http url="/conversations/2/messages" version="1.1" contents="authenticity_token=%%_encoded_authenticity_token%%&amp;body=hello&amp;commit=Send" content_type="application/x-www-form-urlencoded" method="POST">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+        <request><http url="/conversations/2" version="1.1" method="GET">
+          <http_header name="Accept" value="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"/>
+          <http_header name="Accept-Encoding" value="gzip, deflate"/>
+          <http_header name="Accept-Language" value="en-US,en;q=0.5"/></http></request>
+  
+        <thinktime value="2" random="true"/>
+        
+        <request subst="true">
+          <http url="/logout" version="1.1" contents="_method=delete&amp;authenticity_token=%%_encoded_authenticity_token%%&amp;commit=Log+Out" content_type="application/x-www-form-urlencoded" method="POST">
+          </http>
+        </request>
+        
+    </session>
+  </sessions>
+</tsung>
