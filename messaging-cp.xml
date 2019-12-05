@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="wisowls-scale4.zdccrxpw3v.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
+    <server host="wisowlsm5large.zdccrxpw3v.us-west-2.elasticbeanstalk.com" port="80" type="tcp"></server>
   </servers>
 
 
